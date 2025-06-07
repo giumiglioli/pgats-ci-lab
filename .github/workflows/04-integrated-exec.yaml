@@ -13,7 +13,7 @@ jobs:
             - uses: actions/checkout@V4
 
             - name: Instalando Yarn
-              run: npm install -g yearn
+              run: npm install -g yarn
 
             - name: Instalando dependencias
               run: yarn
