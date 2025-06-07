@@ -7,7 +7,7 @@ name: 'Execução por Deploy'
 # Gatilho de execução manual = workflow_dispatch
 # Gatilho de execução agendada = schedule
 # Gatilho de exec. a partir de outro pipe = workflow_run
- 
+
 on:
   workflow_run:
     workflows: ['Execução Manual']
@@ -15,9 +15,8 @@ on:
       - completed
 
 # Trabalhos/tarefas dentro do pipeline = jobs
-jobs: 
+jobs:
   e2e-tests:
-
     # Máquina que o job vai executar
     runs-on: ubuntu-latest
 
@@ -26,8 +25,6 @@ jobs:
 
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
-
-
     # Passos do script de build
     steps:
       # Clone do projeto
@@ -35,7 +32,7 @@ jobs:
 
       # Instalação do Node
       - uses: actions/setup-node@v4
-        with: 
+        with:
           node-version: 22.x
 
       # Instalação do Yarn
@@ -60,5 +57,3 @@ jobs:
         with:
           name: relatorio
           path: ./playwright-report
-
-      
