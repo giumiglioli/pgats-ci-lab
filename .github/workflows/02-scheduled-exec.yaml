@@ -6,8 +6,9 @@ name: 'Execução Agendada'
 # Regras de disparo (gatilhos/triggers)
 # Gatilho de execução manual = workflow_dispatch
 on:
-  schedule:
-    - cron: '0 6 * * 1'
+  workflow_dispatch:
+#  schedule:
+#    - cron: '0 6 * * 1'
 
 # Trabalhos/tarefas dentro do pipeline = jobs
 jobs:
